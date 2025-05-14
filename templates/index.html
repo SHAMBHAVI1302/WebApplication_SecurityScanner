@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Security Scanner</title>
+    <style>
+        /* General Styles */
+        body {
+            background-color: #000;
+            color: #008a00;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            text-shadow: 0 0 10px #008a00, 0 0 20px #008a00, 0 0 30px #008a00;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #111;
+            padding: 20px;
+            border: 2px solid #008a00;
+            border-radius: 8px;
+            box-shadow: 0 0 20px #008a00;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        input[type="url"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #008a00;
+            background-color: #000;
+            border: 1px solid #008a00;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        input[type="url"]:focus {
+            border-color: #19b619;
+            box-shadow: 0 0 10px #19b619;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.1em;
+            color: #000;
+            background-color: #008a00;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #19b619;    
+            transform: scale(1.1);
+        }
+
+        button:active {
+            transform: scale(1.05);
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Web Application Security Scanner</h1>
+    <form action="{{ url_for('scan') }}" method="POST">
+        <label for="url">Enter Website URL:</label>
+        <input type="url" id="url" name="url" required>
+        <button type="submit">Scan</button>
+    </form>
+</body>
+</html>

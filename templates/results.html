@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Results</title>
+    <style>
+        /* General Styles */
+        body {
+            background-color: #000;
+            color: #008a00;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            text-shadow: 0 0 10px #008a00, 0 0 20px #008a00;
+            margin-bottom: 30px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 800px;
+            border: 2px solid #008a00;
+            border-radius: 8px;
+            background-color: #111;
+            box-shadow: 0 0 15px #008a00;
+            overflow: hidden;
+        }
+        
+        li {
+            padding: 15px;
+            border-bottom: 1px solid #008a00;
+            word-wrap: break-word; /* Prevent long words from overflowing */
+        }
+
+        li:last-child {
+            border-bottom: none; /* Remove border from the last item */
+        }
+
+        strong {
+            color: #19b619;
+        }
+
+        /* Scrollable content for long entries */
+        li {
+            max-height: 200px; /* Limit height for each entry */
+            overflow-y: auto;
+        }
+
+        a {
+            display: block;
+            margin: 20px auto;
+            width: fit-content;
+            color: #000;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 10px 20px;
+            background-color: #008a00;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        a:hover {
+            background-color: #19b619;
+            transform: scale(1.1);
+        }
+
+        a:active {
+            transform: scale(1.05);
+        }
+    </style>
+
+
+</head>
+<body>
+    <h1>Scan Results for {{ url }}</h1>
+    <ul>
+        {% for result in results %}
+        <li>
+            <strong>Alert:</strong> {{ result.alert }}<br>
+            <strong>URL:</strong> {{ result.url }}<br>
+            <strong>Risk:</strong> {{ result.risk }}<br>
+            <strong>Description:</strong>{{ result.description }} 
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/">Go back</a>
+</body>
+</html>
